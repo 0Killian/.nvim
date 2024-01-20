@@ -11,10 +11,12 @@ local on_attach = function(_, bufnr)
 
     nmap("<leader>rn", vim.lsp.buf.rename, "[rn] LSP: Rename");
     nmap("<leader>ca", vim.lsp.buf.code_action, "[ca] LSP: Code action");
+    nmap("<F3>", vim.lsp.buf.format, "[F3] LSP: Format buffer");
 
     nmap("gd", require("telescope.builtin").lsp_definitions, "[gd] LSP: Goto definition");
     nmap("gr", require("telescope.builtin").lsp_references, "[gr] LSP: Goto references");
     nmap("gi", require("telescope.builtin").lsp_implementations, "[gr] LSP: Goto implementations");
+    nmap("<leader>vd", vim.diagnostic.open_float, "[gl] LSP: Document diagnostics");
 
     nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "[D] LSP: Type definition");
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D] LSP: Document symbols");
