@@ -2,6 +2,9 @@
 vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
 
+-- No wrap
+vim.opt.wrap = false
+
 -- Line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true

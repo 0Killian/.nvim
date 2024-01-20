@@ -19,7 +19,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Open NERDTree
-vim.keymap.set("n", "<leader>fv", ":NERDTree<CR>", { desc = "[fv] Open file tree" })
+vim.keymap.set("n", "<leader>fv", ":Neotree<CR>", { desc = "[fv] Open file tree" })
 
 -- Debugger
 vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "[F5] Debugger: Start/Continue" })

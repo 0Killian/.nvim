@@ -15,7 +15,7 @@ local on_attach = function(_, bufnr)
     nmap("gd", require("telescope.builtin").lsp_definitions, "[gd] LSP: Goto definition");
     nmap("gr", require("telescope.builtin").lsp_references, "[gr] LSP: Goto references");
     nmap("gi", require("telescope.builtin").lsp_implementations, "[gr] LSP: Goto implementations");
-    
+
     nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "[D] LSP: Type definition");
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D] LSP: Document symbols");
     nmap("<leader>ws", require("telescope.builtin").lsp_workspace_symbols, "[D] LSP: Workspace symbols");
@@ -101,28 +101,6 @@ cmp.setup {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-        },
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { "i", "s", }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s", }),
     },
     sources = {
         { name = "nvim_lsp" },
